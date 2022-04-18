@@ -32,6 +32,7 @@ class BigInteger {
   const int calc = 9;
   std::vector<long long> digits;
   bool is_positive;
+ 
   static int stringIntCast(const std::string& s) {
     int res = 0, ten = 1;
     for (int i = s.size() - 1; i >= 0; --i) {
@@ -40,6 +41,7 @@ class BigInteger {
     }
     return res;
   }
+ 
   static int how_many_digits(const int number) {
     int power_of_ten = 1, scr_of_digits = 0;
     while (number / power_of_ten != 0) {
@@ -48,6 +50,7 @@ class BigInteger {
     }
     return  scr_of_digits;
   }
+ 
   void delete_nulls() {
     if (digits.size() == 0) {
       return;
@@ -61,8 +64,10 @@ class BigInteger {
       }
     }
   }
+ 
  public:
   BigInteger() = default;
+ 
   BigInteger(const std::string& s) {
     int check = 0;
     if (s[0] == '-') {
@@ -86,6 +91,7 @@ class BigInteger {
       }
     } while(i >= check);
   }
+ 
   BigInteger(const int a) {
     int copy = a;
     if (copy < 0) {
@@ -142,6 +148,7 @@ class BigInteger {
   friend std::istream& operator>>(std::istream&, BigInteger&);
   friend bool operator==(const BigInteger&, const BigInteger&);
   friend bool operator<(const BigInteger&, const BigInteger&);
+ 
   BigInteger& operator++() {
     *this += 1;
     return *this;
