@@ -1,0 +1,29 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">-->
+<!--    <title>FlaskBlog</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--   <h1>Welcome to FlaskBlog</h1>-->
+<!--</body>-->
+<!--</html>-->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="color: #112860">{% block title %} My Notes Archive {% endblock %}</h1>
+    {% for post in posts %}
+        <a href="{{ url_for('post', post_id=post['id']) }}">
+            <h2 style="color: #193a8d">{{ post['title'] }}</h2>
+        </a>
+        <span class="badge badge-warning">{{ post['created'] }}</span>
+        <a href="{{ url_for('delete', id=post['id']) }}">
+            <span class="badge badge-danger">Delete</span>
+        </a>
+        <hr>
+    {% endfor %}
+{% endblock %}
+
+<!-- как игру то оформить также-->

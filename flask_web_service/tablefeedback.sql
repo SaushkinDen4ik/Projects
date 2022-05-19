@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS feedback;
+
+CREATE TABLE feedback (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT NOT NULL,
+    feedback_text TEXT NOT NULL
+);
